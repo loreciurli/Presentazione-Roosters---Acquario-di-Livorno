@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Roosters Livorno all'Acquario &mdash; 25 settembre</title>
+<meta name="description" content="Roosters Livorno si presenta all'Acquario di Livorno. Venerdi 25 settembre alle 18.30, 15 euro con drink, buffet e musica. Posti limitati.">
+
+<meta property="og:title" content="Roosters Livorno si presenta all'Acquario">
+<meta property="og:description" content="Venerdi 25 settembre, ore 18.30. Drink, buffet e musica. 15 euro, posti limitati.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="logo_roosters.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --display:"Archivo Black","Inter",system-ui,sans-serif;
+  --testo:"Inter",system-ui,-apple-system,sans-serif;
+
+  --abisso:#071a2b;
+  --profondo:#0c2740;
+  --bordo:rgba(244,237,224,.15);
+  --oro:#f2a21c;
+  --oro-chiaro:#ffbc4d;
+  --luce:#5fd3d0;
+  --sabbia:#f4ede0;
+  --sabbia-soft:rgba(244,237,224,.62);
+  --misura:34rem;
+}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+
+body{
+  margin:0;
+  background:var(--abisso);
+  color:var(--sabbia);
+  font-family:var(--testo);
+  font-size:1.0625rem;
+  font-weight:300;
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* ============ acquario di sfondo ============ */
+
+.acquario{
+  position:fixed;
+  inset:0;
+  z-index:0;
+  overflow:hidden;
+  pointer-events:none;
+  background:
+    radial-gradient(ellipse 80% 50% at 30% 8%,
+      rgba(95,211,208,.15), transparent 60%),
+    linear-gradient(180deg, var(--profondo) 0%,
+      var(--abisso) 45%, #04121f 100%);
+}
+
+.fauna{position:absolute;inset:0;width:100%;height:100%}
+
+.fauna g{
+  fill:var(--luce);
+  animation-name:nuota;
+  animation-timing-function:linear;
+  animation-iteration-count:infinite;
+}
+
+.fauna .risalita{animation-name:risale;fill:rgba(244,237,224,.9)}
+
+@keyframes nuota{
+  from{transform:translateX(-16vw)}
+  to{transform:translateX(116vw)}
+}
+
+@keyframes risale{
+  from{transform:translateY(112vh) translateX(0)}
+  50%{transform:translateY(56vh) translateX(3vw)}
+  to{transform:translateY(-14vh) translateX(0)}
+}
+
+.raggi{
+  position:absolute;
+  inset:-10% 0 auto 0;
+  height:70%;
+  background:
+    linear-gradient(102deg, transparent 44%,
+      rgba(95,211,208,.09) 47%, transparent 51%),
+    linear-gradient(84deg, transparent 62%,
+      rgba(242,162,28,.05) 65%, transparent 69%);
+  animation:ondeggia 22s ease-in-out infinite alternate;
+}
+
+@keyframes ondeggia{
+  from{transform:translateX(-4%) skewX(0deg)}
+  to{transform:translateX(4%) skewX(2deg)}
+}
+
+@media (prefers-reduced-motion:reduce){
+  .fauna g,.raggi{animation:none}
+  .fauna{opacity:.35}
+}
+
+/* ============ struttura ============ */
+
+.wrap{max-width:var(--misura);margin:0 auto;padding:0 1.5rem}
+.pagina{position:relative;z-index:1}
+
+.hero{padding:3rem 0 3rem;border-bottom:1px solid var(--bordo)}
+
+/* il contorno del logo e viola scuro e sul fondo blu sparirebbe:
+   l'alone chiaro ne ridisegna la sagoma */
+.logo-box{position:relative;display:inline-block;margin:0 0 2.5rem}
+
+.logo-box::before{
+  content:"";
+  position:absolute;
+  inset:-16%;
+  border-radius:50%;
+  background:radial-gradient(circle,
+    rgba(244,237,224,.22) 0%,
+    rgba(95,211,208,.10) 45%,
+    transparent 70%);
+  z-index:0;
+}
+
+.logo{
+  position:relative;
+  z-index:1;
+  display:block;
+  width:clamp(7.5rem,26vw,9.5rem);
+  height:auto;
+  filter:
+    drop-shadow(0 0 1px rgba(244,237,224,.9))
+    drop-shadow(0 0 11px rgba(244,237,224,.42))
+    drop-shadow(0 3px 18px rgba(0,0,0,.5));
+}
+
+.data{
+  font-family:var(--display);
+  font-size:clamp(3.2rem,14vw,5rem);
+  line-height:.95;
+  letter-spacing:-.025em;
+  margin:0;
+  color:var(--oro);
+}
+
+.data small{
+  display:block;
+  font-family:var(--testo);
+  font-size:clamp(.95rem,3.4vw,1.1rem);
+  font-weight:500;
+  letter-spacing:.01em;
+  line-height:1.4;
+  margin-top:1rem;
+  color:var(--sabbia-soft);
+}
+
+h1{
+  font-family:var(--display);
+  font-size:clamp(1.45rem,5.4vw,2.05rem);
+  line-height:1.16;
+  letter-spacing:-.02em;
+  margin:1.9rem 0 1.1rem;
+  max-width:18ch;
+}
+
+.occhiello{
+  margin:0 0 2.4rem;
+  max-width:44ch;
+  color:var(--sabbia-soft);
+  font-size:1.05rem;
+}
+
+.fatti{margin:0;padding:0;border-top:1px solid var(--bordo)}
+
+.fatto{
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  gap:1.5rem;
+  padding:.95rem 0;
+  border-bottom:1px solid var(--bordo);
+}
+
+.fatto dt{flex:0 0 auto;color:var(--sabbia-soft);font-size:.95rem;font-weight:400}
+.fatto dd{margin:0;text-align:right;font-weight:600;font-size:.98rem}
+
+section{padding:3.25rem 0}
+section + section{border-top:1px solid var(--bordo)}
+
+h2{
+  font-family:var(--display);
+  font-size:1.24rem;
+  letter-spacing:-.02em;
+  line-height:1.3;
+  margin:0 0 1.3rem;
+}
+
+p{margin:0 0 1.15rem;max-width:38ch}
+p:last-child{margin-bottom:0}
+strong{font-weight:600}
+
+.incluso{list-style:none;margin:0;padding:0}
+
+.incluso li{
+  position:relative;
+  padding:0 0 0 1.6rem;
+  margin-bottom:.75rem;
+  max-width:38ch;
+}
+
+.incluso li::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:.68em;
+  width:.55rem;
+  height:.55rem;
+  border-radius:50%;
+  background:var(--oro);
+}
+
+.prenota{
+  background:rgba(16,52,80,.72);
+  backdrop-filter:blur(3px);
+  border-top:1px solid var(--bordo);
+  border-bottom:1px solid var(--bordo);
+}
+
+.prezzo{
+  font-family:var(--display);
+  font-size:clamp(2.5rem,10vw,3.4rem);
+  line-height:1;
+  letter-spacing:-.025em;
+  margin:0 0 .5rem;
+}
+
+.prezzo em{
+  font-family:var(--testo);
+  font-style:normal;
+  font-size:.95rem;
+  font-weight:500;
+  letter-spacing:0;
+  color:var(--sabbia-soft);
+  margin-left:.6rem;
+}
+
+.cta{
+  display:block;
+  width:100%;
+  margin:1.9rem 0 1rem;
+  padding:1.2rem 1.5rem;
+  border:none;
+  border-radius:2px;
+  background:var(--oro);
+  color:#0a1b2a;
+  font-family:var(--display);
+  font-size:1.02rem;
+  letter-spacing:-.015em;
+  text-align:center;
+  text-decoration:none;
+  cursor:pointer;
+  transition:background .18s ease;
+}
+
+.cta:hover,.cta:focus-visible{background:var(--oro-chiaro)}
+
+.cta[aria-disabled="true"]{
+  background:transparent;
+  color:var(--sabbia-soft);
+  border:1px solid var(--bordo);
+  cursor:not-allowed;
+}
+
+.nota{margin:0;max-width:40ch;font-size:.92rem;color:var(--sabbia-soft)}
+
+footer{padding:2.75rem 0 3.5rem;font-size:.9rem;color:var(--sabbia-soft)}
+footer p{max-width:40ch;margin-bottom:.6rem}
+
+a{color:var(--oro)}
+a:focus-visible,.cta:focus-visible{outline:2px solid var(--oro);outline-offset:3px}
+
+@media (min-width:40rem){
+  .fatto dt{font-size:1rem}
+  section{padding:3.75rem 0}
+  .hero{padding:3.75rem 0 3.5rem}
+}
+</style>
+</head>
+
+<body>
+
+<div class="acquario" aria-hidden="true">
+  <div class="raggi"></div>
+
+  <svg class="fauna" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice">
+    <defs>
+      <path id="pesce"
+        d="M0 0c9-11 30-17 46-17s34 7 44 17c-10 10-28 17-44 17S9 11 0 0Z
+           M90 0l20-14v28L90 0Z"/>
+      <path id="medusa"
+        d="M0 0a20 20 0 0 1 40 0c0 4-2 7-4 9H4C2 7 0 4 0 0Z
+           M8 11c0 8-3 13-1 20M18 11c0 9 1 15-2 22M30 11c0 8 3 13 1 19"/>
+      <path id="tartaruga"
+        d="M14 0a26 17 0 0 1 52 0 26 17 0 0 1-52 0Z
+           M66 -4c6-3 12-4 16 0 3 3 2 7-2 8-5 1-10 0-14-2Z
+           M18 -14c-6-6-13-8-16-4-3 3 0 8 4 11ZM18 14c-6 6-13 8-16 4-3-3 0-8 4-11Z
+           M60 -14c5-6 11-8 14-4 3 3 0 8-4 11ZM60 14c5 6 11 8 14 4 3-3 0-8-4-11Z"/>
+    </defs>
+
+    <g style="animation-duration:74s;animation-delay:-10s;opacity:.16">
+      <use href="#pesce" x="0"   y="150" transform="scale(.55)"/>
+      <use href="#pesce" x="130" y="196" transform="scale(.55)"/>
+      <use href="#pesce" x="250" y="132" transform="scale(.55)"/>
+      <use href="#pesce" x="188" y="252" transform="scale(.55)"/>
+    </g>
+
+    <g style="animation-duration:112s;animation-delay:-48s;opacity:.11">
+      <use href="#pesce" x="0"   y="620" transform="scale(.8)"/>
+      <use href="#pesce" x="170" y="672" transform="scale(.8)"/>
+      <use href="#pesce" x="330" y="608" transform="scale(.8)"/>
+    </g>
+
+    <g style="animation-duration:58s;animation-delay:-30s;opacity:.13">
+      <use href="#pesce" x="0"   y="430" transform="scale(.4)"/>
+      <use href="#pesce" x="96"  y="462" transform="scale(.4)"/>
+      <use href="#pesce" x="60"  y="392" transform="scale(.4)"/>
+      <use href="#pesce" x="180" y="440" transform="scale(.4)"/>
+      <use href="#pesce" x="264" y="410" transform="scale(.4)"/>
+    </g>
+
+    <g style="animation-duration:168s;animation-delay:-70s;opacity:.14">
+      <use href="#tartaruga" x="0" y="330" transform="scale(1.5)"/>
+    </g>
+
+    <g class="risalita" style="animation-duration:96s;animation-delay:-20s;opacity:.13">
+      <use href="#medusa" x="880" y="0" transform="scale(1.4)"/>
+    </g>
+
+    <g class="risalita" style="animation-duration:132s;animation-delay:-84s;opacity:.1">
+      <use href="#medusa" x="220" y="0" transform="scale(2)"/>
+    </g>
+
+    <g class="risalita" style="animation-duration:110s;animation-delay:-52s;opacity:.11">
+      <use href="#medusa" x="1010" y="0" transform="scale(1.1)"/>
+    </g>
+  </svg>
+</div>
+
+<div class="pagina">
+
+<header class="hero">
+  <div class="wrap">
+    <span class="logo-box">
+      <img class="logo" alt="Roosters Livorno"
+           src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAbgAAAG1CAMAAAC8ihFfAAAAP1BMVEUAAAAzKlH1oheVEjT8/PxQLkuibjZlTFIjHl4zKlAzKlBXV1efmKlfAF+HXUHLxL0AAAAAAAAAAAAAAAAAAACxuHJHAAAAEHRSTlMA/v///////xOdXwL/Av//pVlYyAAAJ0VJREFUeNrtndeC4yoMQHESAa77/3+741S6JMCOHZuHW3ZnUjhWF0KI3166F1qM3p/Oq+u6tm2bptXiXJtC1o8+qgcrc53ctgTtJWQzrNZjZa7u3K3tSNoTWYrXh1t/btkG1viSMwKzU942Ro0K7W+d5m0pEpq8tbq/ixod2t0tOfXkQvaKY4N41O7cxnOLF+JGUmbjvP9Man/czv1danV/20sk3DXcdbqTi9m3jiAWd4Hs2iaD26kml4mgRYvLxeyQZAjb6U4utvqXydJJZ4Ro2SDA7ZS3xdyShwMRJadHAjYAENcrnO7kytziiQ0c24PZvMB3J09NuZxbgrl+SWwA1/eC051cyy3pEB+iT2J7S1qM27mW4WYwCZq4pJI0RS3I7VSSi5Fr09IxmhKJUAtxmwuqpq3sRX/CrOiWvLY5nE8JYhNXjFv7iTbua/w8DaebWcktCeq1eOAWELa/JdwwwC+Ht23XPUTwhJctbNrh1jr+Xx8Tt5CwzYuecH7COwO8gixX1MSNEXGDa2QBr1rQvYxff1q9nCxXxMTFnJIoNiY3B54+nZYst8QzcX1Y3OLYcrh96Bluy58AjvpkyOBmRHE6LG4JbAwDF6Z3d1q0bYPHewPZydGUpy7VgRW2bkls+QLnA+y01ier8OqCNTP9VpN0T7IuNwfiHeOT40nSdydtE6dDWNPiVqoozxo6KeoOe/nPKC5o3jBsiwjcmfV0s8qpbp6QN4loybTAgbPyBa4/uUWeaB32NlFxCwvcXFkNEhdZ9A5u4+LcmkiUQBA3T+AAMNhseIdvgo6W1mYTF4gSCOJmCxyQSHPhtUdXlPGSaBeM7mgQkKJBGh7QBO7QmrIXbVIXtTni9hY4NjU6vvbooYBDRoBl4jK5PcCRNWSaX5jg0fMojiY0nYrW50YmUQebSdAxf0ePvTtXnsDcmzZP3O6vAtfq6wwFPgkTD4wBTmdzu8IC2CxH9dihwKhdPWntTj6369Lcjh4KtB63eKJqCRbZivLQoYAbooWasjbEDc5QIJzpEklwYkvcDh4K6JBEwUa5iTMUCBs4SBbRvs7tGmmEOWIk0AUtWBDc17E5ivLQMZwOex6wfW6HVpRO8jhZ/hTb4nboEK6PCVwA3Ma4HTyEi3HzwX2fmzj7TCKhd6pTBDbG7eBDpHRUpuDkthfPBBL2ZGvcjl0UcHJdCUdgc9zmodvHTXelBM5uztoat9e89GNKnV09TY222CC3+9G5U+AC3r7YamLZRXdAqdNJbbjNAlzo3N7h0HVJbQh74HZIdGmBe+/XBrgR0I0HsnBpgXsZlm8buNehnmRDc3eg4GA0XROI9yBfN7TiJ0FmN2U8oKYUMXCb4vZs1IxeXHAQU9ehATZsoXQakrsjo+tRTTlHBHDd5oqg6/QBFKYmZEbEdbMrojG7Xx/xbOWX4brHFUGnTxO3U3S/beq0aeKuu11hdJ3+4ahu3L/AJdyU7leF7gdMXBpdFX2p+825qP0vmDgcXYm+fN3Ku2Fw4nr9SXT5WbDXYNqu3dqVFv1v+CZINiXrNvjXBdhdu8WuWxMcXK8nunfm/aEfP7cXbrg08CPgYvpSC7Kts0Rtq+cTmt8Dl0KHs+uDl/J2hwYnrGmUz/8RYjV0T4U5JhTQXS67HYwJWyuMS04PBag/BSVc82mfYte79N43Guiu3UXmcw1wtMmF1eEBdv3EfFf5vD7z+HXsKuXtmbjFwTHmTcIq+vI5/t6+90zPNzMhbUiHsnGcEa9iiacGnXzvXqS1kxndi8ZxgjOYF1b0LzNmPR8IHG+e8nKeUQ107abBNd/DtmyatBzd9qK4hZLMgrdXS0eQohTd9sYDjIu4lcx9WiNlw0cHsGETt0ghlbtHK6XamDZXGN9jm6P54t158EvcOCHlfXY0bDqKs70Tx8jlzL5mq6R1U9s4u9dVFrD5CTjx3oWMHNTGub1T3bGk2+dR3XQU5ya9vHkLv8jtSU8492eJ+DfZ6iiVNj7hRCztucUKP99uf4E9zJzq4uBgWW6NWfSB8KVy3+e22XHP0ZPEvNNVmdyA4C6sLYCwi0MI9rAM5/PDktyAEVutCm8XM6e0joocMPKXOUkldsQHX+C2SQPXP+OTmMix7xhbfK3BDrZdFxgj5XpwHr1NcVuD3aanBr+adEPlerDBwca4LR39bdgxGftkX4wRvAGt2LM2tyXFzuU2bsiuRVvQPDNHG3DyBW6LoYOtOia9SFw57MfFFMXEaixRSgyDELf7+vvPQSi1IY0JG23t6sNdutEdEZSWBuo2/yG7hZf4w7cJdBud9txThM3eEML20KAN4pZeuexgQW7j3rA17k1WUKQoVVjSxD9z3QVPfdXWeVO6twBOs7C9WaETDyGPmnigMlc+O1iI2xZCgdG7JJq2HYB07gms685n9pIv6/8/cvfvW+ig2V6Gki1u73gOkK3hCpvBzAVomDv1BX0J2zwr0OYafsIgSzK2NygD2b85JLDW/FcZjgr8Hjf3am9e3SW1M8DA9mL1/re4x3DKew11D/V4UlcscBvkhlo365BoqikU6IoygM381xy3KcAi9RUt3Cb1ZNy6gZLy8llSYpsZ/bq2aoMhKGyPf/75jfmpkmWiAdjkWbiYmlQmM4NeCl7ksiR1u5kshpCw3f/5LztDsmQMtyduEWrPNQGJHBguv/HSAWxPanVFrVbo7XPbQvwWNG/qgi2pcHJgkBrCxu3fG9sftdo1hDphNzSblLcQt+lCWii61//fDHBDWNhqa8h6eS7wz1NtlJu6kJeiZDEfuZHB15KmsFUvxYmFsG2WGwMbhs7Oad2rNiFsYsPYPG7tNjrxfG7ywlwydjji/bC+01RBaROienW8Vi0g8MlasU2/BC4Za0p3RAarbC9s9R2SJbFtJT2pC9Uk6qVYAueI2wNbsydsWykH6GI1iQldIGijYlPq7zPO/SaC03GynG1rMkeRLtBVrmuoyfeKarxgSjKFDdQwZHYtwILYtnMvSFuTW1xdBozb3z/+CTdyhAhoE94a2CK+0ka8SecmvwLzZriX4d2kiNv85sGf59RPYTlhK5m1vXD9rZxbhJwKiNvNFh2Q5i/fsFYvWIxb/KZAvRU1OS7ALWzolB+6OQUeabs3N3SFxQ6Woralq0B6x8BV4hYydMITN1tkJoc53AgrKHUFucnkgIxZS+qtcOuW4RYgJ+yS2+2fCr9zPHoIo6sXDaRPvG7pekA3EoBLxTWFwb3FTfla0rKPRHCunfyIneBBSyduuk3dUuYoygA3KYWyv9J8EkPKDBdFvXvs/rlBgApZR3Ejk4sGgiR4Ap8I0G3rSH7veJQus2RjAijJI6cMVWmLm/VL0XidL3Tv9qaEmBEGArTd1u4EdAROUqrableDpJMbXi2StoTIiGm8cZYgTNFwFjF3dk9vbeyEsO2ZTFh9JgpP0Mg9a3CDtcmueo7E60VCV7C67WFzawIqi9q7dY9CDu5trUk3VjV8E5d0L0vWQ9g2OCio8w1cfnUl1sGX/CUZ/+nhxl5Ql9ooNnrzpna3UBYWxYLsJIPbpcnWlPel6lGjXYn0fYFT5dhi7OLkIJEoG3LAVTF0zwt1+o3OUnOmqZUoSYxdnFycW5bAVTB0T2pis9QcgcOkrTUWwVeRRHLWD8pU0XUNmXtCG8W2LwMnnaZyrwN6JsrSVwL5Yqdi7UOzPyoCgaO45a8cF6V9SdqmRS1YPg0+gC9kehyf7tX7Fi6tMXhKJKo8durEDYfVrWQpJrLX9+w3LmrPBqGWpur7QCHjdREeNgXF0ITgFecSJewybh65dtYQjopvZ2B/xMaXnPU7gIZoyrfWSD+AOnbcIKgyRaBzKIaulJtHrvsUQx7L1j27YRZqEHJ94Z7t31imyxc7Ger5EoLQDFbBRZkPQ9nfaOznNYrdLZ2qXmiittUuIpUQOxlu+nLFTtyqLI9cL35hBV2TlnH1dYibSoXaMuBafoZzPc94x+d3FQd0nfgRcG1Y2Bja3m2jlYlW2IfYUVrSb8uR+wmZ065lm2nqEispsXwy8TDBYuRaoX9NU+aUCkdH2QpGQUgMVR0ROrn+pzTlvcWT6165bbTSSJAAFgCL22LkjMlDIXI/pClnbBlxTLjpQT48SEzwlOn0qXoC5rbIKLeJqBXjvrG9wbWZXTCOrpW00zoWK1VX6Gjn69q9m7mu7GuM4aYHIrdnyWaoGLqRSwKt2LOLMt71XJvfmDtaihLoR1JtZ7KW0HFqcPsmp8v64HWoWYXBrfEb/2FYqRiwZ205m7iu5LSQ1lEDN9HigYCwqFx03PJbq/froujCztw2ZuCIIfgQPG6TJ3VZTXf7lbq+TGAjijLADfDD4IZDKMTy3HYtcyVPnO2ZyHBz3ftvVVpVeuyAl2fO7HDSOw/o8rh1MUXpVblfLN0+fRW5v2Oe3QtKLBAG+OT6w4GLKkrVhM9zg5QEcCv34h1O5uycyRQ3cK8smAyp0ErgSlrOD0dOR0JvGW2YlAQj94Xm12Npy7hnArEkmFyorYTumbThRkJ9JHGLClz0qKIkuZW3ZUO4Lnh5oT6ShYsInIhxEws14HFTlDp08aQ+jqLUEX2oIjln4livqiWB8Ii9R7eQA08fRlO24VBARiI7FTiKXc3IqXgmVCTqAlbvvD6IooyFAkCLyOdpTfWMXLL4IMI5Sv3qnW+P5Fv2fYMJnMS4QY6RC1cOkBy2CKnLGdv4aNV4wut+P56zk10ylKNEuXljtWluSCj5PKBnRkTI0GkjyX7Xmt3vB+KxUABoGef7VLu8SG5OPjPylPGJQ+2n6q8f5yN01x9V4CQxDADzsk3F9kMEPd81xMXSLukcIesVjb0lMey2b1Ft+CGbXWgVWBtZzPfUFUtcu469gcHNADdkeJCKmu9K2sIjpbrceW3KD9WwNJd7P43KitkELW0yJJVqdyxw4dhbErmBd7FQZnrrERoM1G6koFrtjlMYiNW9BY+bCU7kR9t4HQ4JHY4jc7G6N/jcgh16oau8lhz2JG6YzB27DKd8bum55JBblBNl4KLn+Y9UFQBXKQoyN/vyvAWr3ep2kruvoMBJahlHhMGJKillct1IHM5DiXkmlDKOLXDOLe4VjZwiNEcMh5O5sGcCXnoysrnRi0ZVPSPnXpOkbie5PnxWQFFPxkH8htihmpFTjkjC7fDkbEUJpoGjnUS1Rv8LwvZmeSeDkyAhzq05jKKUH24TcSalPeo/u90L9yMpwiwO1FwZUpTSvdk9MVQoeZv2UM2tFDYURXudH25oDp4+leQ7bd1bNkRuvxch5h5IL+yS079p4OKnT42qaeoqF/dalOBJ/hoHBRxFKGj+aavH3zdwQLkUAuKxQEhXkmMCFNxgR3sDMbJof1LgdBs9ph/2JsERKf8+IpHZ1kwbnwIUv2dw+9N/2zEJK0oZ7QeKgPNEjuhaEjPLpOdh+PWgoIvPoQkGb8IzYlcCOBI5QQQ3kNye4bcdFHtAHnopI/jeR/DmtqzTO5TygJ3UZDwHP0aua9KK0jkhDFciOMg5vkOppA6WThX012vHX4rDNcJNRfx+RFMGwaHkSPU4Zf3owHgS2p/lprBLh4OaMHLHZQY52nFvSw0Kjpv6q9O2AbnnKFJyY4BL2yRiy8lgOqCC5af+Ru5Lu1PSk8bNARQrDCTdE07IjHYsDDS76biW4+/pSdvA+aOXIUYlehswjxy9xcvUgornqbY/oSjbKDcJ9MJN9BrnK73Hh3DhsI9+IOavxa+ZuWggIAlpZAo4oDWPsxvzlCmj3E6WvUdz7hUeU/pu8ET6X/DBuWdyuNO6TNrsRJreObgwt8itApBQg9drBrn5eMDwHMvGn/k0GOTYHRHtLxm4KSFsYW1I0JRpcCVLGaLE7x7b84Hw0Z9ML+n1bTK460LgGgNIRsPmns2cPZleqpRspHPISXBLiZz4iFxGT8R+r5QYOd4ApJGI6xdEzjj6mNP4t9/aXFvK7QMuyW0pkfuEguQ+abH/g8Yav/QUj9KI4PJFTgnmcQ+OmdvnnVdal3N7g4PrQiKnkrWCnGlTe29B6RmKEs+KYOCyJ2FDsjqXM99t2Ley5ChKuBaDyxe5ZNo5axbmzpWlbskSR5CkJcGJukbOVZb9Hq1c1xHoCQK4K7oKgmxVGdyw75zl+MFnCV/b6Y6oKD88cHCQD+5W18j9gGep+5dX9RS+tr1ffUXn9uJxXUrkIF3tyRxi+hunr0bRjy9P04vLaX4+XJcSOUh3NmdO6raU5b5rqo8uDD1fENgRHRMmuGsBOFEZnKUsux9pHeIoShY4yAd3q+udeMryB3qbe5aifMkRCZwoADfUBjfsPvPl2jvNUZQvOSKByxI5QM7vVBmI/wOnw+1KD3wfnELa0utMxO/73SvKjsntoQBp4K4F4G7VwYmf6tbjKsonDSK4DJHDxsSKOiKn964o2QL3oEH80WsBuFvN1EnAP9lzSKBzBO6uK6ng8lvwYiJXcnGP+pWQgB0KvGkAA3IuuFttVWlZuT2HBM5tA9cFwKEiJxLgRF3nxHnFHR+9sgVOkMFdK4K7pWZRVgd3+5HO5jyBm2kAA3Ia3JAAI6qDG3bef/JcHd8zedJg6dV09S0Fpjo4qxNpt7oyV+D+fI5a4MATK+zQ462myI37tHDZAvdH7lpHVyoXnMKOz9W8w3OvjmWbK3CsBViCSyW8fVWrHhcRuX6PAqfzXEruEhi4IRFfD9XB2SKn9whuHYFLi5xwXRCBTGcrB7f7XPNKApcGN7gygB0Sr3A7vNp1xtJyTRYVuKSudK8dU9hAxApXVYtdV1TX05RJv1I4cND7jipfDr9DkdP5sUBFXenu5IANaKsBbth1xnI1TUkAl5wfWh+cLXL9fjWlWBjcFe1TcDuF4u5JDW6OyJ2aki9ywhEBgU5TqwLOzFh2OxO4FTUlYUaUSCnCBcDtVuTW1ZS4xIkUFlE3jHMfhn0F4atqyriRczYSv15MVAIn9hkRWD0LsAI4QKdfpLAsAO62T125sokjgBtSvr6qEg0MYgi/5q7ck3ZVTYkPjRUpz2OoInHC+m1T/+7Jxq0rcDFwwlZdCjdIhdpRBCOCHWVPVjZxsTyzE1kNqEGCUrMmwu7JaeJY4JQjVXiKShUnusS+3ZNuzSguGg8I244B7ryr8hBgCLgne2lHH9f2TSLgBhucwBMdQ4V0yeC7J/uJwVfWlBFwjgUiXClRA9z7RUzZP30TBjjlgCOEy6IGuCakK8+8CR2cLT5KEcBVyizvVFda5/XF98A5Pt+AVz6LogHfOd1bOdWKBq5fA+dQGAhbriqBe6pctTsjtzo4UXhCUVRJMbs5T7G7gKBd28RBIbihSsOJcAzs3oyc3gQ4yPArKta9nemKO6kQbAGc+DI4ZSWa91FNXT8aKAV3q9K3MLgfYG/eSRk4qOJUMj37GuD+eb21w85C8NXBFQvcrYZv8k8kzp8fARzUAJfTCFkK7l/iUpFdxAOF4JoKmlLlhGA1j+k8PsXOquCl4KA8/B4y9hxKwf1LjMXfRyBXBI6fbinXlHdwpU7lv9vhwUGpphQ54ESpiUtdIdL9vnPCrilUELj7lg9LgmuPAa5ZWeDujvvtV8CN7J/XFcAB9/dqCNwa4PQ7lUvZ2Pyhzo/7Hhirf7Mey8EVjc9TWZ68Kgen0hKnX/uKb+ajrpmX4hddy7jy9HH50ROdmXpKLTPqfq3UL35Mn/B+3nxP9VhC0dfM+/GC5F+B0IvEd0c/hU1TLvx6bGZpMZTBTvN+FQhTnQK/sNRt0suuds6eaLowdIKfbdGizfx0rI/2BAHMX9gnt8cESzZpZtdIm//hmL/KnWQO++X2h4ItBiNP3rr1vsuOMaywdHYgdq5vk9MMRdmdG7ZLmTsFbmu+6ClwP03uFLjNkWMLnLrQl+MeSubPA/bzsmG+geJ9fu6SDeOHVcl3bWkiZwoc65vwttX5eWC+AZB2a0lwF8XDzNocyS4tZAuc/Wbcn1fMR4P282pRcDJ3dyQX9J+2HPGiAE9sgvoAuN9lYgr1okAWU62sD8/UlgUC9zFbwP0ukvkO0+WyY3I5ypUw3Dlf4F4SobjfRTKfDXm57JicvGSRS4tcmcA93ov1axPXA/ojt1dujwdb8kWUkG+2yjky66Fi4lYN9x3UZceryXZFk/191rUqkPXJuNuquG8zyctxliSGBGOpwP3tK9efOcERyYlFBU7KRXXHLKKHAnchlQl0ucDxwU0nOFpiMJ5r1uUCx1dk7AfkYOAUwTvpywWO7ZvIFcBJId9rx+BasaDAZYALqdtpXvdORUl4B5lOPk9WHBtXRXOPpqe3589w/zTfQi8NcCOhlVLWBRf91gFwkK4yQBqMj0Ym/9aut6i4b+A1Oc2gAdYD15CyXdnvk942icffTplOoeDUd8ClX+/VFF2eVSW4lYamnBDX8b4mhTuVEvue8GVwohAc9oWL8zyoW2mZuHi4nK5+euAUUuYGbKtwcFARHPribHC40ZFPEb2fdpBJtxIfVqgepykU91NNiDgoPP523mFaWOJkITiBbZGii1SQs+md9KjERV5FoRqeq/j8D4o9sJUlDgGnMHCoclV0I4aIcNStXAIchgFVNe7fC7UkuKYcnPtxgCdxqSeBftKD/aEUE4Nkg5OF4CQP3IQefUCVKz3EDr8g2o4+eo2wwFUDcmI6lRLdqcvGweEyKnngmpRbOaLjCsNcGsRzYEcDE+LlUcB5T5N7cJQDDnUS64OT5BfsqD3MbFd34kYDquE+f5IfaiFWthCc5D7dF6ZxmCjZym5lpxKAq/E9bbwsuPIIvKpbSZntStEC5eCw3/DAia2BQz9PRbcyXksddVWnEo2m0TAI8KrOl8GpYnCK7KfGa6ljsrSDfmaub4/H36o2OERABDt1gnq53HggIS/JTq+W7lRKrlO5RXDAxIAKVLFbKTPcSmEOu5i44CbJLpVhqP3kp1gXHJo6QQOaYnCkWqopcZL7KAl+/pf7JfxUpdwaOInloTG3Ujmai9aip2s6lZjZFRXAEZIbDDL8LHOFeADCFXalpkfTAAGcWSJAs3C4UwnopmH7RAB3kZEFNcDJUj+V71Z6v0+IB8xDH3ynkl8UhRrgWBuCaQUfHJT5qRluZaL6R5m9prgqAE0xSzyMw6wiC1xoR7jgbLG+5z6B64hemN5J/Bh/NBwYE77JEtEAGjaVgQtsSS64+G/h/oysBS4VxzX5TmWNMK4yOIKnMDFdQO91ywM5ckSjv+NUEsI4NOMlc483U8FJ/gOBurl5bmVI4MavOJWEMG4BcFiglgfuwgnkVIYtDlq4keJU8rtg2Jl+PP5WFcBdkFcsBoc6A1AHXHI0VIFTiRZcCGEcDi53osCK4C4Kaz/N0pXpkV5LOpV+Rgw9BxDa5qkIHBZhT3wFLKPxg3oglJcK5NJXhYwFTuXEdioBBTeFfkAtCY764qpil/kjCHa7YzwLJ/IylcA2cVN5/B0Exz0DhqitbYD7yGkMYCeqZCr9T8vPgjRYx3rodA+f3CLgJMeE5QD0JbDLSnhdzLS1CJ3vY0cDhPhbxsjKXHBYBAJ8cM1lsSWp5FLl7z9gU+pAZkY0gIKLV/jE9GqbtC8JkT8FjjjQSyecSoJ15UYDePzdZEQ80zrgLhkhRA1ympupJGhlfkzGB4e7zcAFB9izoh4VTfkVcBRypKON+eAmfvydA07VBueWpWcLLy8C+LFfSj3Fl+Wct1qne/P4nhKWkqCEcRKVni+Ay3lLXNEyyCksYZnMVPLB4cVsxQfXLA5OrAIOsskFlGVf4ptARjSAglNrgFPECIRjVikpLsn66VRMUOJUAtb3Rgrj1D7B8R0CxdxjSPed5Psm0GTURHcCbqoPbmJLR7oMng0OmoyBH4T4e0LdTj44yQVHeE+mfpIZv5cwcmOqNQ8X5IzSGurAyTXAScQ5yQGXHPolc4gnDxBkOpUQRI3WBhQef6c3+T50CXBwwAKnaoB73okdHAkls2R1SvXotVkhJdCa1OqAU+6zLBcHl2NXFf3tiPP4kic/spxKILaFXvD4GwencKu3CXCS3gHyFE2Mn0x5Jzm+CaS1RVEY5/+OWB5cTtCfSAEBXfGm8UW9E52X8KIefYAq4JT8AjjIiAfi74e9WgxfdNxJn+dUUpsLgZCum7YArqkMTtFFLlmcSriVuFMZmMpHBUcJ4xQKewlwl/IaYNJQ8DUvkgdoWZlKOSlIaMScRrsMcHBBwU2bAKfydSXaHtnSq6iywUwZPxqY8B1SOeCKJS4n6k91PeXpykakvBP+eY+YTkBTzJQwDjLATXj6CXjufpV0zdSU6kpFdCuJrXkxcPxogABOEMBZWwRBt+ob4GTDaC2mhRgQPrVDPO8RU+boQeic+HuigMPvKgWWKs0Cl6zlZ+pKsltZBC4jGkAf/YBvm9V7WgrukrHLl6ap7VdGhjNr2nkPamsxoZad2MF7T04wCl0B3FQFHBTrygSFmG+S+JWI+5TThBBqhhbpO1DkIuAUKuh/n0qkz2QkO1XCunKS6VMe1Cl6tEPEHjiRGQ3kHHT7GjgT4aTc4294eTaIQJrxMQVccIreSDzvocLg+IcA8sCpb4MzhdCUwXTDQ1BXKvPFAvQg5Z30TN8kphNzwF2+Aw4wcMyBHH+bjtqKYInAU6BYBCVCbmUvaFPzIh+QHRvxbyPOBodyKQL3fDIQIx96lthTlYJJL6JTSQXntBgEtGLWBV4ApfKGXzCX08SNVvGmECPMoUtwMAPw+OMxoeBiHztxMCuzizS7oYoOLq9LMg0uqCvZfXFBt5I4mSYMLqDBsFo8v29bZvQxTZS2Y1kKTuJVPEl5BjPcSqpTGYm0M663o85e8rcXeKKwEjikRqUCTxTm0QEh6UWeTBNWihmePfd3VEZPGzRZ4EQVcMjFdDn9VcFaatw3ETg4kfGQqmxuYXL+oFFqdkqU9SU/9gBLTQd0ZZFbqZmTacLgspQLxzvxKnVSiNf574a/nheYKnG/aHqqAQ5L+imCXcxxKzUl7ouBYzuIzEMPsll1Zc15Q2sdgb9mJ3g9tzJZRVVo8xr3myrKs/1M7ELzjTXLo6Bf+q0I7ZiBtBe7pdF0K3u0NQ/Q+oW65NorFUziqu/QijOcEISK0I4Z0JXoNGdCtpI87jD0+WS+nwFmynZLvMIEI0I4UZrD/H1Fi2EXrJba06fmhT6fvOT7GbAt+SIRnEUQj8AVqisVZs0JbmVTAq4kdbjf9SeBLwGUDeEka2BWUyiNDqlivO+d0BJeYXBwSG5mr//UUE7P+hRiNRAgJr3oTmU4tUP16ifV/O6CSYo0OF9XJk6tSpVWv/cWvWTCC+uBmggBmZQKmiMsMHPrWLINawKQlwuSreTM0A6rcnl4ZDa+u/OC3vjBD/WdA8UMpzKWk5MnM4+e90cTQ1eiOSSmUxlNpk62eT00syhLf+u45By3knG/R9R5Um9mlZxtL4MM4AwVtf48/APgLeuPQ+8We5sKS5YmLyy3kuVUJrxeVdNrnPxgKOazyddXkv53VGEzAe4DLD+/smR+W2U4dgnvhONU5jVo85dvjSFWs4hWZiPP82R8CeWBW7Yy4aZc2DUxx61syU5l1vyW8Oooj+YUVTNetpPcFGYcqZQuuBVqSmCcigAuOatFT3Pu91C1HMfOvAA5agymqPF1sgvBonikF0Z5ryIT/RRLZA1e8V6kK5XsVsYMSQrcI7ZvCriZNYlYxDP5D4y09zMFjqx61gb3+OTq2V4BuW4l59I4VSd59WxT0t0sdW3bdfpvBQzp5H8wZf/Nc68zGs2MjSCBa4XWXde2y8cJZLeS7lQ2IKcKPrJ+NZfN8LR/6cG77vUG96mEqaB5UmbPkFFFt1qJLr49hCA486cNcK8+j+r8VJ53wnAqq6z2c0yon9np/u9fhsAZn2TyDR/Y4F7ho/mnn/9Rlg8q/YyFDIFT9k9/JG7s+77n8evYHgs56ZUacFIfWtvdQ0d/BHtHBSfNjwYhcOCCk1FwFw64N7JRfM7P/+n4rk3YBE59gelWMpzKQmT6oyETA6HT4F4W0Bq3qLLBqQxwr8/ci340xS9oyzuWzmRchGteGrdMEPNwPl6AevQGNETilLmhyv5DPjiZD+4jf/0Hn6k8W+1/sUKtaTgdLKcyX8zm53MkXaSFgYOQdcoGdykG93oiXwbgKXx3mzB6NqBMaxr70UZb8wrLMrOYvc8mjFoI6pWDGLimLjhVB9zTVPeW/dZOtbNUa5oasA07lRKqyFnQEUnfDkMFdzGdygJwsiY4Q7cYR6G6zH2EQDeZEVJ5h4hLRM1wQfpeU79qL1oGOMOthNeP5YO7VAcXeCyzoz7T4lncWreKmpvJavV9vTwQzftumgNu8uo2qgScWhrcXf66/IhdyYCnqC1w2Qqy7T5qQmd8tRfolgLOcCsn588i4EQKnFwc3D3wm+Fl04PJ4TZ3xJbWYT4GbdSicJHAgVeGbDCJe1zL6fZ6TK7yXQrc/YF+BwxVkk+9ENQXCtnYFzTdiyqLBK5xG78lBi7SpPPUQWoFcE9Tft+ssRzefaA28UVa12dvu5cXMopaiwZOOkfMssEpu8FxaXCW6HXzyubGCO3nCtr7UfmDNj4dJlFz0cBNL3Dw3ts8cI0NbA1wtn7Kczc7r56SErhnbDk/KQ9ofV8XGh2cclwS4IHzvBS1MrhXorMXWe5mG8taJKSzf5dj6kOjg3sL2uSewaaAM5koq0C3JrhPpMCF10bzhInSJzOwXghc4zTfs8BZTOwk3xfAfcrJVHitHkPDMqKlz16ssYjgXhHphxYeDpilYRk+lPkdcPdKMl3wdCrF60fX63Djgbs0n63FA3Dp19+UI5LfAvccoEASvOiFSIFITQihxabAKavRBAfnyqTBZCvgPhXmJDtP9XWxBGSsZP1VcOBkPijgIAxObgjcW/D6GLzALeBdWNTEkq5INrjGczcISeaQc2Lryg2Ae3dQBQVP+7Vop9z3yoqMYt2VA04Swfk20p33uRFwb9PksGt1iMecFnHMmharLyo4mQSnguCUpx/de9S3A+4tNfqdW5ldRB39sVdapO/FVxYV3OQ2xhAkTnkVb3caufUW3wf3Unj3tKZGnZrvUWOAU27TLkHimjC4ZrMSZxurZAFG9+v6Iig4cwylMDiB22kYakEPg7u4TKQHDmlBX3vNVL6LJQNc7NiD20Gjwl2/KtARBg448MFFDn2cqxyczACn3ESXe4faCW5NcIoMDtweE+W8V3Aq+AmuKjjlbuwUrAPYXV4RcPB5aZk+ZXGuYnDgnYIIjpoLtueB6zDK+HF/2ZzgCsHJKXRs29jZKbDjKiSVHjiz5CMTPd/nwsFtcHWiPwHtEFwn9Mlnh+BOedsnuO5ks0twJ7d9gjv15D7BnfK2T3CnvO0T3Fbl7T+t4k4QpWihtwAAAABJRU5ErkJggg==">
+    </span>
+
+    <p class="data">25.09<small id="giorno-ora">Venerdi 25 settembre</small></p>
+
+    <h1>Roosters Livorno si presenta all'Acquario di Livorno</h1>
+
+    <p class="occhiello">
+      Una serata per conoscere gli atleti, lo staff e il progetto
+      sportivo della stagione, nella cornice dell'Acquario sul
+      lungomare. Con drink, buffet e musica.
+    </p>
+
+    <dl class="fatti">
+      <div class="fatto">
+        <dt>Dove</dt>
+        <dd>Acquario di Livorno, Piazzale Mascagni 1</dd>
+      </div>
+      <div class="fatto">
+        <dt>Quando</dt>
+        <dd id="fatto-ora">Venerdi 25 settembre</dd>
+      </div>
+      <div class="fatto">
+        <dt>Quota</dt>
+        <dd>15 &euro; a persona</dd>
+      </div>
+      <div class="fatto">
+        <dt>Capienza</dt>
+        <dd>Posti limitati</dd>
+      </div>
+    </dl>
+  </div>
+</header>
+
+<main>
+
+<section>
+  <div class="wrap">
+    <h2>Cosa comprende la quota</h2>
+    <ul class="incluso">
+      <li>Ingresso alla serata all'Acquario di Livorno</li>
+      <li>Presentazione della squadra e dello staff</li>
+      <li>Presentazione del progetto sportivo della stagione</li>
+      <li>Buffet</li>
+      <li>Un drink</li>
+      <li>Musica per tutta la serata</li>
+    </ul>
+  </div>
+</section>
+
+<section class="prenota">
+  <div class="wrap">
+    <h2>Prenota il tuo posto</h2>
+
+    <p class="prezzo">15 &euro;<em>a persona</em></p>
+
+    <p class="nota">
+      La prenotazione si completa con il pagamento. Un posto per
+      prenotazione: se venite in piu, ripetete il passaggio per ogni
+      persona.
+    </p>
+
+    <a class="cta" id="cta" href="#">Prenota e paga 15 &euro;</a>
+
+    <p class="nota">
+      Pagamento gestito da Stripe con carta, Apple Pay o Google Pay.
+      La ricevuta che ricevi via email e il tuo ingresso. Nel modulo
+      puoi segnalare intolleranze o allergie: le passiamo alla cucina.
+    </p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Domande rapide</h2>
+
+    <p><strong>Posso pagare in contanti la sera stessa?</strong><br>
+    No. I posti sono limitati e vanno chiusi in anticipo per
+    organizzare buffet e accessi.</p>
+
+    <p><strong>Devo stampare qualcosa?</strong><br>
+    No, basta mostrare all'ingresso la ricevuta arrivata via email,
+    anche dal telefono.</p>
+
+    <p><strong>Posso disdire?</strong><br>
+    Si, scrivendo a <a id="mail-1" href="#">roosterslivorno@gmail.com</a>
+    entro il 22 settembre. Rimborsiamo l'intera quota.</p>
+
+    <p><strong>Vengo con un bambino, paga anche lui?</strong><br>
+    Sotto i 6 anni l'ingresso e gratuito, ma segnalacelo via email
+    cosi teniamo il conto per il buffet.</p>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Roosters Livorno SSD a RL &mdash; Via Pieroni 15, Livorno</p>
+    <p>Informazioni: <a id="mail-2" href="#">roosterslivorno@gmail.com</a></p>
+  </div>
+</footer>
+
+</div>
+
+<script>
+/* =====================================================================
+   MODIFICA QUI - sono le uniche tre righe da toccare
+   ===================================================================== */
+
+const CONFIG = {
+
+  // 1. URL del Payment Link Stripe (inizia con https://buy.stripe.com/)
+  //    Finche resta vuoto, il pulsante appare disattivato.
+  linkStripe: "https://buy.stripe.com/eVqaEX0nifjJag42FL4F201",
+
+  // 2. Orario dell'evento, come vuoi che appaia in pagina
+  orario: "Venerd\u00ec 25 settembre, ore 18.30",
+
+  // 3. Email di contatto
+  email: "roosterslivorno@gmail.com"
+};
+
+/* ------------------ da qui in giu non serve toccare ------------------ */
+
+document.getElementById("giorno-ora").textContent = CONFIG.orario;
+document.getElementById("fatto-ora").textContent = CONFIG.orario;
+
+["mail-1", "mail-2"].forEach(function (id) {
+  const a = document.getElementById(id);
+  a.href = "mailto:" + CONFIG.email;
+  a.textContent = CONFIG.email;
+});
+
+const cta = document.getElementById("cta");
+
+if (CONFIG.linkStripe) {
+  cta.href = CONFIG.linkStripe;
+  cta.rel = "noopener";
+} else {
+  cta.removeAttribute("href");
+  cta.setAttribute("aria-disabled", "true");
+  cta.setAttribute("role", "link");
+  cta.textContent = "Prenotazioni in apertura";
+}
+</script>
+
+</body>
+</html>
